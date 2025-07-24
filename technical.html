@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,26 +7,26 @@
     <link rel="stylesheet" href="styles3.css">
 </head>
 <body>
-    <nav id="navbar" class="nav">
+    <nav id="navbar">
         <header>Python Documentation</header>
-        <a class="nav-link" href="#Introduction">Introduction</a>                          
-        <a class="nav-link" href="#Variables_and_Data_Types">Variables and Data Types</a>
-        <a class="nav-link" href="#Control_Structures">Control Structures</a>                                       
-        <a class="nav-link" href="#Functions">Functions</a>
-        <a class="nav-link" href="#Modules">Modules</a>                  
+        <a class="nav-link" href="#introduction">Introduction</a>                          
+        <a class="nav-link" href="#variables_and_data_types">Variables and Data Types</a>
+        <a class="nav-link" href="#control_structures">Control Structures</a>                                       
+        <a class="nav-link" href="#functions">Functions</a>
+        <a class="nav-link" href="#modules">Modules</a>                  
     </nav>
     <main id="main-doc">
-        <section class="main-section" id="Introduction">
+        <section class="main-section" id="introduction">
             <header>Introduction</header>
             <p>Python is a high-level, interpreted programming language.</p>
             <p>It is often used for web development, scientific computing, and data analysis.</p>
             <code>print("Hello, World!")</code>
         </section>
-        <section class="main-section" id="Variables_and_Data_Types">
+        <section class="main-section" id="variables_and_data_types">
             <header>Variables and Data Types</header>
             <p>In Python, you don't need to declare the data type of a variable.</p>
             <p>The data type is determined by the assigned value.</p>
-            <code>x = 5 </code>              
+            <code>x = 5</code>              
             <code>y = "hello"</code>                 
             <ul>
                 <li>Integer</li>
@@ -35,30 +34,55 @@
                 <li>String</li>
                 <li>Boolean</li> 
                 <li>Lists</li>
+                <li>Dictionaries</li>
+                <li>Tuples</li>
+                <li>Sets</li>
             </ul>
         </section>
-        <section class="main-section" id="Control_Structures">
+        <section class="main-section" id="control_structures">
             <header>Control Structures</header>
             <p>Python has several control structures, including if-else statements and loops.</p>
-            <code>if x > 5: </code><br><br>
-            <code>print("x is greater than 5")</code>
+            <code>if x > 5:</code>
+            <br>
+            <code>    print("x is greater than 5")</code>
             <p>Loops can be used to iterate over sequences.</p>
             <code>for i in range(5):</code>
+            <br>
             <code>    print(i)</code>
+            <p>Another common loop is the while loop:</p>
+            <code>count = 0</code>
+            <br>
+            <code>while count < 5:</code>
+            <br>
+            <code>    print(count)</code>
+            <br>
+            <code>    count += 1</code>
         </section>
-        <section class="main-section" id="Functions">
+        <section class="main-section" id="functions">
             <header>Functions</header>
             <p>Functions are reusable blocks of code.</p>
-            <code>def greet(name):</code><br><br>
+            <code>def greet(name):</code>
+            <br>
             <code>    print("Hello, " + name + "!")</code>
             <p>Functions can take arguments and return values.</p>
+            <code>def add(a, b):</code>
+            <br>
+            <code>    return a + b</code>
+            <br>
+            <code>result = add(3, 5)</code>
+            <br>
+            <code>print(result) # Output: 8</code>
         </section>
-        <section class="main-section" id="Modules">
+        <section class="main-section" id="modules">
             <header>Modules</header>
-            <p>Modules are pre-written code that can be imported into your program.</p>
+            <p>Modules are pre-written code that can be imported into your program to extend its functionality.</p>
             <code>import math</code>
-            <p>Modules can be used to perform specific tasks.</p>
+            <p>Modules can be used to perform specific tasks, such as mathematical operations.</p>
             <code>print(math.pi)</code>
+            <p>You can also import specific functions or variables from a module:</p>
+            <code>from math import sqrt</code>
+            <br>
+            <code>print(sqrt(16)) # Output: 4.0</code>
         </section>
     </main>
 </body>
