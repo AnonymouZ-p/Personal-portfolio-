@@ -1,0 +1,238 @@
+/* --- Global Styles & Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --background-dark: #0A0A1A;
+  --form-background: #1a1a2e;
+  --text-light: #F0F2F5;
+  --input-bg: #2d2d44;
+  --input-border: rgba(255, 255, 255, 0.1);
+  --accent-blue: #007BFF;
+  --gradient-purple-blue: linear-gradient(45deg, #6a11cb, #2575fc);
+  --gradient-orange-red: linear-gradient(45deg, #f76f4f, #f21b3f);
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  background: var(--background-dark);
+  color: var(--text-light);
+  font-size: 18px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+#title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: var(--gradient-purple-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slide-up 1s ease-out;
+  text-align: center;
+}
+
+#description {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-family: 'Roboto Mono', monospace;
+  animation: fade-in 1.5s ease-out;
+  margin-bottom: 2rem;
+  color: #ccc;
+  text-align: center;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#survey-form {
+  background: var(--form-background);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid var(--input-border);
+  animation: fade-in 1.5s ease-out;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23F0F2F5" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+select option {
+  background: var(--form-background);
+  color: var(--text-light);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom radio and checkbox styles */
+.form-group div label {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.form-group div label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  transition: all 0.2s ease;
+}
+
+input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+
+input[type="checkbox"] + label::before {
+  border-radius: 4px;
+}
+
+input[type="radio"]:checked + label::before,
+input[type="checkbox"]:checked + label::before {
+  border-color: var(--accent-blue);
+  background: var(--accent-blue);
+}
+
+.form-group div label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 8px;
+  height: 8px;
+  background: var(--text-light);
+  transition: transform 0.2s ease;
+}
+
+input[type="radio"] + label::after {
+  border-radius: 50%;
+}
+
+input[type="checkbox"] + label::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23F0F2F5" d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>');
+  width: 18px;
+  height: 18px;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+}
+
+input[type="radio"]:checked + label::after,
+input[type="checkbox"]:checked + label::after {
+  transform: translateY(-50%) scale(1);
+}
+
+#submit {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  background: var(--gradient-purple-blue);
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#submit:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: var(--gradient-orange-red);
+  box-shadow: 0 6px 20px rgba(242, 27, 63, 0.4);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px;
+  }
+  
+  #title {
+    font-size: 2.5rem;
+  }
+  
+  #description {
+    font-size: 1rem;
+  }
+  
+  #survey-form {
+    padding: 30px;
+  }
+}
