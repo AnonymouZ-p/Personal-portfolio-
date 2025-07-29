@@ -1,211 +1,193 @@
-/* General Body and Typography */
-body {
-    font-family: 'Roboto Mono', monospace; /* Monospaced font for code documentation feel */
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #eef2f5; /* Light, cool background */
-    color: #333;
-    display: flex;
-    overflow-x: hidden;
+/* --- Global Styles & Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --background-dark: #0A0A1A;
+  --text-light: #F0F2F5;
+  --accent-blue: #007BFF;
+  --code-bg: #1e1e3f;
+  --code-text: #F8F8F2;
+  --navbar-bg: rgba(10, 10, 26, 0.8);
+  --gradient-purple-blue: linear-gradient(45deg, #6a11cb, #2575fc);
+  --gradient-orange-red: linear-gradient(45deg, #f76f4f, #f21b3f);
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-dark);
+  color: var(--text-light);
+  font-size: 18px;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Navbar --- */
 #navbar {
-    min-width: 300px;
-    max-width: 300px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #3f4a59; /* Darker, deep blue-grey */
-    color: #fff;
-    padding: 20px 0;
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    animation: slideInFromLeft 0.8s ease-out;
-    z-index: 100; /* Ensure navbar is above main content on smaller screens */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+  padding: 2rem 0;
 }
 
 #navbar header {
-    font-size: 1.8em;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px 0;
-    margin-bottom: 20px;
-    color: #e0f2f7; /* Lighter blue for header */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  background: var(--gradient-purple-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid var(--accent-blue);
 }
 
 .nav-link {
-    display: block;
-    padding: 12px 25px;
-    color: #cddcdc; /* Light greyish blue for links */
-    text-decoration: none;
-    font-size: 1.1em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: block;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: #5a6b7d; /* Slightly lighter blue-grey on hover */
-    color: #fff;
-    transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 30px;
 }
 
-/* Main Content Area */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background: var(--gradient-orange-red);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+  transform: scaleY(1);
+}
+
+/* --- Main Content --- */
 #main-doc {
-    margin-left: 300px; /* Offset for fixed navbar */
-    padding: 40px;
-    flex-grow: 1;
-    animation: fadeIn 1s ease-out;
+  margin-left: 300px;
+  padding: 40px 5%;
+  flex-grow: 1;
 }
 
 .main-section {
-    margin-bottom: 60px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    padding: 30px;
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0; /* Hidden by default for animation */
+  margin-bottom: 40px;
 }
-
-/* Stagger animations for sections */
-.main-section:nth-child(1) { animation-delay: 0.2s; }
-.main-section:nth-child(2) { animation-delay: 0.4s; }
-.main-section:nth-child(3) { animation-delay: 0.6s; }
-.main-section:nth-child(4) { animation-delay: 0.8s; }
-.main-section:nth-child(5) { animation-delay: 1.0s; }
 
 .main-section header {
-    font-family: 'Segoe UI', sans-serif; /* A more readable font for section headers */
-    font-size: 2.2em;
-    color: #6a4c93; /* Deep purple */
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #a7d9b9; /* A light green accent */
-    text-align: left;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text-light);
 }
 
-.main-section p {
-    margin-bottom: 15px;
-    font-size: 1.05em;
-    color: #444;
-    text-align: left; /* Align text left within sections */
+.main-section header::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-purple-blue);
+  border-radius: 2px;
 }
 
-code {
-    display: block;
-    background-color: #f0f4f7; /* Very light blue-grey for code blocks */
-    padding: 15px;
-    margin: 20px 0;
-    border-left: 5px solid #6a4c93; /* Deep purple accent on code blocks */
-    border-radius: 5px;
-    font-size: 0.95em;
-    line-height: 1.5;
-    white-space: pre-wrap; /* Preserve whitespace and wrap */
-    word-break: break-all; /* Break long words */
-    color: #2c3e50; /* Darker text for code */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+p {
+  margin-bottom: 1rem;
 }
 
 ul {
-    list-style-type: disc;
-    margin: 20px 0 20px 40px;
-    padding: 0;
-    color: #555;
+  list-style: none;
+  padding-left: 20px;
+  margin-bottom: 1rem;
 }
 
-ul li {
-    margin-bottom: 10px;
-    font-size: 1.05em;
+li::before {
+  content: "»";
+  color: var(--accent-blue);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+code {
+  display: block;
+  background: var(--code-bg);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: var(--code-text);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* --- Responsive Design --- */
+@media (max-width: 850px) {
+  body {
+    flex-direction: column;
+  }
 
-@keyframes slideInFromLeft {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-}
+  #navbar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
+  #navbar header {
+    padding: 1rem 0;
+    margin-bottom: 0;
+  }
 
-    #navbar {
-        position: static; /* Make navbar static on small screens */
-        width: 100%;
-        min-width: unset;
-        max-height: 250px; /* Limit height for scrolling */
-        overflow-y: auto;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
+  #main-doc {
+    margin-left: 0;
+    padding: 20px;
+  }
 
-    #navbar header {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .nav-link {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    #main-doc {
-        margin-left: 0; /* Remove left margin */
-        padding: 30px 20px;
-    }
-
-    .main-section {
-        padding: 20px;
-        margin-bottom: 40px;
-    }
-
-    .main-section header {
-        font-size: 1.8em;
-    }
-
-    code {
-        padding: 10px;
-        font-size: 0.9em;
-    }
+  .main-section header {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
-    #navbar {
-        max-height: 200px;
-    }
-
-    #navbar header {
-        font-size: 1.3em;
-    }
-
-    .nav-link {
-        padding: 8px 15px;
-        font-size: 0.95em;
-    }
-
-    #main-doc {
-        padding: 20px 15px;
-    }
-
-    .main-section header {
-        font-size: 1.5em;
-    }
-
-    .main-section p {
-        font-size: 0.95em;
-    }
+  #navbar header {
+    font-size: 1.5rem;
+  }
 }
