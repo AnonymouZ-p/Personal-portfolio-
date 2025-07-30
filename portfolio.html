@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
-    <link rel="stylesheet" href="styles4.css">
+    <link rel="stylesheet" href="./css/portfolio.css">
   </head>
   <body>
     <nav id="navbar">
@@ -15,20 +15,25 @@
 
     <section id="welcome-section">
         <h1>Welcome to my portfolio!</h1>
+        <p>I'm a passionate developer showcasing my work.</p>
     </section>
 
     <section id="projects">
         <h2>My Projects</h2>
-        <div class="project-tile">
-            <h3>Project 1</h3>
-            <p>Description of project 1</p>
-            <a href="https://github.com/users/AnonymouZ-p/projects/2" target="_blank">View Project</a>
+        <div class="projects-grid">
+            <div class="project-tile">
+                <a href="https://github.com/users/AnonymouZ-p/projects/2" target="_blank" class="project-link">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1</p>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://www.freecodecamp.org/AnonymouZ/project" target="_blank" class="project-link">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2</p>
+                </a>
+            </div>
         </div>
-        <div class="project-tile">
-            <h3>Project 2</h3>
-            <p>Description of project 2</p>
-            <a href="https://freecodecamp/AnonymouZ/project" target="_blank">View Project</a>
-        </div>
-      </section>
+    </section>
   </body>
 </html>
